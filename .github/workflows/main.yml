@@ -1,0 +1,31 @@
+name: TiddlyLite
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  NODE_VERSION: "12"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "${{ env.NODE_VERSION }}"
+      - name: "Build"
+        run: |
+          sudo apt update
+          sudo apt install -y wget tar
+          wget https://github.com/Jermolene/TiddlyWiki5/archive/refs/tags/v5.2.5.tar.gz
+          tar xvf ./v5.2.5.tar.gz
+          mv ./TiddlyWiki5-5.2.5 ./TiddlyWiki5
+          sh ./TiddlyLite.sh All
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./Output/output
