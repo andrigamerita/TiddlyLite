@@ -1,0 +1,4 @@
+title: $:/core/images/close-button
+tags: $:/tags/Image
+
+<svg width="22pt" height="22pt" class="tc-image-close-button tc-image-button" viewBox="0 0 128 128"><text x="-5%" y="100%">✕</text></svg>
