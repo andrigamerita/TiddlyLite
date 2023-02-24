@@ -1,7 +1,0 @@
-title: $:/TiddlyLite/CSS
-tags: [[$:/tags/Stylesheet]]
-code-body: yes
-
-svg.tc-image-button > text {
-	font-size: 500%;
-}
